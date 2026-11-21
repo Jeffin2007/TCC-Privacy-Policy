@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #FBFAF5;
+    --surface-white: #FFFFFF;
+    --border-hairline: #C4CCC2;
+    --accent-crimson: #C8102E;
+    --accent-gold: #F2B705;
+    --accent-navy: #1F2A8C;
+    --text-primary: #161A16;
+    --text-muted: #5C655C;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background-color: #FBFAF5;
+    color: #161A16;
+  }
+
+  body {
+    font-family: "Manrope", "Noto Sans Tamil", system-ui, -apple-system, sans-serif;
+    background-color: #FBFAF5;
+    color: #161A16;
+    line-height: 1.65;
+  }
+
+  html[lang="ta"] body {
+    font-family: "Noto Sans Tamil", "Manrope", system-ui, -apple-system, sans-serif;
+    line-height: 1.78;
+  }
+}
+
+.font-mono-code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom subtle scrollbar for TOC horizontal strip on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm 12mm;
+    size: A4 portrait;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #161A16 !important;
+    font-size: 10.5pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-surface {
+    box-shadow: none !important;
+    border-color: #C4CCC2 !important;
+  }
+}
